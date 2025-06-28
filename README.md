@@ -4,7 +4,7 @@ A modern, responsive personal portfolio website showcasing Azure Data Engineerin
 
 ## 🚀 Live Demo
 
-[View Live Website](https://sugamdewan.github.io) *(Update this link after deployment)*
+[View Live Website](https://sugamdewan.github.io) 
 
 ## ✨ Features
 
