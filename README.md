@@ -12,9 +12,9 @@ The website is built using fundamental web technologies:
 
 * **HTML5:** For the structure and content.
 * **CSS3:** For all styling, layout, and responsive design.
-* **JavaScript:** For interactive elements like the mobile navigation menu.
+* **JavaScript:** For interactive elements, such as the mobile navigation menu.
 
 ### 📸 Screenshot
 
-![A screenshot of the home page of Sugam Dewan's portfolio website.] screenshot.png
+![A screenshot of the home page of Sugam Dewan's portfolio website.] (screenshot.png)
 ### 📂 Project Structure
