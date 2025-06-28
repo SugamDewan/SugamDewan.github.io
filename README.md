@@ -16,5 +16,5 @@ The website is built using fundamental web technologies:
 
 ### 📸 Screenshot
 
-![A screenshot of the home page of Sugam Dewan's portfolio website.](https://i.imgur.com/u5pTRcj.png) 
+![A screenshot of the home page of Sugam Dewan's portfolio website.] screenshot.png
 ### 📂 Project Structure
