@@ -573,3 +573,10 @@ section {
 html {
     scroll-padding-top: 80px;
 }
+
+/* --- Styling for Project Images --- */
+.project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
