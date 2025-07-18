@@ -226,3 +226,45 @@ function createBackToTopButton() {
 
 // Initialize back to top button
 createBackToTopButton(); 
+
+// --- Function to Load Projects from projects.json ---
+
+document.addEventListener("DOMContentLoaded", () => {
+    const projectsGrid = document.querySelector(".projects-grid");
+    
+    if (projectsGrid) {
+        fetch("projects.json")
+            .then(response => response.json())
+            .then(projects => {
+                let projectsHTML = ""; 
+                
+                projects.forEach(project => {
+                    let tagsHTML = project.technologies.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
+                    
+                    projectsHTML += `
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="${project.image}" alt="${project.alt_text}">
+                            </div>
+                            <div class="project-content">
+                                <h3>${project.title}</h3>
+                                <p>${project.description}</p>
+                                <div class="project-tech">
+                                    ${tagsHTML}
+                                </div>
+                                <div class="project-links">
+                                    <a href="${project.github_url}" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                projectsGrid.innerHTML = projectsHTML;
+            })
+            .catch(error => {
+                console.error("Error fetching projects:", error);
+                projectsGrid.innerHTML = "<p>Could not load projects at this time.</p>";
+            });
+    }
+});
