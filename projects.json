@@ -1,11 +1,11 @@
 [
-  {
+{
     "image": "project-churn-dashboard.jpg",
-    "alt_text": "Customer Churn & Retention Analytics Dashboard",
-    "title": "Customer Churn & Retention Analytics Dashboard",
-    "description": "Developed a dynamic Power BI dashboard to analyze customer churn patterns. Authored DAX measures from scratch to reveal a 26.5% churn rate and discovered that customers on month-to-month contracts were the primary segment at risk, with a churn rate exceeding 40%.",
-    "technologies": ["Power BI", "Microsoft Fabric", "DAX", "Dataflows", "PySpark"],
-    "github_url": "https://github.com/SugamDewan/PowerBI-CustomerRetention"
+    "alt_text": "Customer Churn Prediction Platform",
+    "title": "End-to-End Customer Churn Prediction Platform",
+    "description": "Architected and developed a complete data science solution in Microsoft Fabric to analyze and predict customer churn. The project involved the full lifecycle: engineering a star schema data model with PySpark, training and evaluating an XGBoost machine learning model with Python to achieve 79.77% prediction accuracy, and building an interactive Power BI dashboard to visualize the results and identify high-risk customer segments.",
+    "technologies": ["Microsoft Fabric", "Azure", "Python", "PySpark", "SQL", "Scikit-learn", "XGBoost", "Power BI", "DAX", "Dataflows", "Data Modeling"],
+    "github_url": "https://github.com/SugamDewan/Customer-Churn-Prediction-Fabric"
   },
   {
     "image": "project-sales-analytics.jpg",
@@ -13,7 +13,7 @@
     "title": "End-to-End Sales Analytics Pipeline",
     "description": "Engineered a complete data pipeline using Microsoft Fabric to ingest, clean, transform, and model raw sales data. Architected a star schema data model to enable high-performance reporting in Power BI using DirectLake mode.",
     "technologies": ["Microsoft Fabric", "PySpark", "Power BI", "Deltalake"],
-    "github_url": "https://github.com/SugamDewan"
+    "github_url": "https://github.com/SugamDewan/Microsoft-Fabric-Sales-Analytics-Project"
   },
   {
     "image": "project-etl-migration.jpg",
@@ -21,14 +21,14 @@
     "title": "Azure-Based ETL Migration & Optimization",
     "description": "Designed end-to-end ETL pipelines with Azure Data Factory and Databricks. Implemented transformations using PySpark in Azure Databricks to optimize performance, reducing data processing time by 30%.",
     "technologies": ["Azure Data Factory", "Azure Databricks", "PySpark", "SQL"],
-    "github_url": "https://github.com/SugamDewan"
+    "github_url": "https://github.com/SugamDewan/Azure-Pipeline-Demo"
   },
   {
     "image": "project-sql-optimization.jpg",
     "alt_text": "A graphic showing SQL Server optimization and disaster recovery concepts",
     "title": "SQL Server Optimization & Monitoring",
     "description": "Developed a Python script using pyodbc to automate SQL Server backup monitoring and query performance analysis. Optimized database query performance, achieving an execution time of 0.02 seconds on test data.",
-    "technologies": ["Python", "SQL Server", "Git", "pyodbc"],
-    "github_url": "https://github.com/SugamDewan"
+    "technologies": ["Python", "SQL Server", "Git", "pyodbc", "T-SQL"],
+    "github_url": "https://github.com/SugamDewan/SQLServer-Optimization-DR"
   }
 ]
