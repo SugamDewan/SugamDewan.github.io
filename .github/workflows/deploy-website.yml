@@ -16,14 +16,18 @@ permissions:
 
 # This section defines the jobs that will run as part of the workflow.
 # We have one main job called 'deploy'.
+
 jobs:
   deploy:
-    # This specifies the type of virtual machine my job will run on.
-    # 'ubuntu-latest' is a standard and reliable choice provided by GitHub.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    
+    steps:
 
     # These are the steps the job will perform in order.
-    steps:
+  
       # Step 1: Checks out the repository's code so the job can access it.
       - name: Checkout
         uses: actions/checkout@v4
