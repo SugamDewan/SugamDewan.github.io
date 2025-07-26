@@ -1,0 +1,49 @@
+# This is the name of my GitHub Actions workflow.
+
+name: Deploy Portfolio Website
+
+# This section defines the trigger for the workflow.
+# We want this to run automatically every time a change is pushed to the 'main' branch.
+on:
+  push:
+    branches: [ "main" ]
+
+# This sets the necessary permissions for the workflow to deploy to GitHub Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# This section defines the jobs that will run as part of the workflow.
+# We have one main job called 'deploy'.
+jobs:
+  deploy:
+    # This specifies the type of virtual machine my job will run on.
+    # 'ubuntu-latest' is a standard and reliable choice provided by GitHub.
+    runs-on: ubuntu-latest
+
+    # These are the steps the job will perform in order.
+    steps:
+      # Step 1: Checks out the repository's code so the job can access it.
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Step 2: Setting up the GitHub Pages environment.
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # Step 3: Build my website files into an artifact.
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      # Step 4: Uploading the built artifact, ready for deployment.
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+      # Step 5: Deploys the artifact to my live GitHub Pages site.
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
