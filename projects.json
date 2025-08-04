@@ -1,5 +1,21 @@
 [
 {
+    "image": "project-cicd-pipeline.png",
+    "alt_text": "A diagram of a CI/CD pipeline using GitHub Actions.",
+    "title": "Zero-Touch CI/CD Pipeline for Portfolio Website",
+    "description": "Engineered a complete CI/CD pipeline using GitHub Actions to automate the deployment of a static portfolio website. The YAML-based workflow automatically triggers on a git push, building and deploying the site to GitHub Pages, eliminating manual uploads.",
+    "technologies": ["CI/CD", "GitHub Actions", "YAML", "Git", "DevOps"],
+    "github_url": "https://github.com/SugamDewan/SugamDewan.github.io"
+  },
+  {
+    "image": "project-azure-webapp.png",
+    "alt_text": "A diagram showing a web application hosted in Azure App Service.",
+    "title": "Cloud Web App Hosting with Azure App Service",
+    "description": "Provisioned a web hosting environment in Microsoft Azure and deployed a static HTML application using Azure App Service. This foundational project demonstrates a practical understanding of cloud application hosting and Platform-as-a-Service (PaaS) concepts.",
+    "technologies": ["Azure App Service", "PaaS", "Cloud Hosting", "HTML"],
+    "github_url": "https://github.com/SugamDewan/Azure-WebApp-Deployment-Demo"
+  },
+{
     "image": "project-churn-dashboard.jpg",
     "alt_text": "Customer Churn Prediction Platform",
     "title": "End-to-End Customer Churn Prediction Platform",
