@@ -1,4 +1,12 @@
 [
+  {
+    "image": "project-medallion-pipeline.png",
+    "alt_text": "A diagram of a Medallion Architecture data pipeline.",
+    "title": "Medallion Architecture Pipeline with Microsoft Fabric",
+    "description": "Engineered an end-to-end, near real-time data pipeline using the Medallion architecture in Microsoft Fabric. The project ingests raw stock data (Bronze), cleans and structures it with PySpark (Silver), and creates business-level aggregations (Gold), making it ready for BI analysis.",
+    "technologies": ["Microsoft Fabric", "PySpark", "Spark SQL", "Delta Lake", "Data Pipelines", "Medallion Architecture"],
+    "github_url": "https://github.com/SugamDewan/Fabric-Medallion-Stock-Pipeline"
+  },
 {
     "image": "project-cicd-pipeline.png",
     "alt_text": "A diagram of a CI/CD pipeline using GitHub Actions.",
