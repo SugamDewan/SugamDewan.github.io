@@ -516,11 +516,11 @@ section {
     }
 
     .projects-grid {
-        grid-template-columns: 1.2fr 1fr;;
+        grid-template-columns: 1fr;
     }
 
     .contact-content {
-        grid-template-columns: 1.2fr 1fr;;
+        grid-template-columns: 1.2fr 1fr;
         gap: 2rem;
     }
 
