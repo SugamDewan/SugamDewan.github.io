@@ -521,7 +521,7 @@ section {
 
     .contact-content {
         grid-template-columns: 1.2fr 1fr;
-        gap: 2rem;
+        /*gap: 2rem;*/
     }
 
     .hero-buttons {
