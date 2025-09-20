@@ -1,5 +1,13 @@
 [
   {
+    "image": "project-azure-streaming.png",
+    "alt_text": "A Power BI dashboard showing analysis of real-time transportation data.",
+    "title": "Azure Real-Time Streaming Pipeline",
+    "description": "Engineered an end-to-end, real-time data pipeline on Microsoft Azure using Event Hub, Stream Analytics, and Data Lake Storage. The project ingested and processed a live data stream, storing the results for visualization in Power BI.",
+    "technologies": ["Azure", "Event Hub", "Stream Analytics", "ADLS Gen2", "Power BI", "Python"],
+    "github_url": "https://github.com/SugamDewan/Azure-Streaming-Data-Pipeline"
+  },
+  {
     "image": "project-medallion-pipeline.png",
     "alt_text": "A diagram of a Medallion Architecture data pipeline.",
     "title": "Medallion Architecture Pipeline with Microsoft Fabric",
