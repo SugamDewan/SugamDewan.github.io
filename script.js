@@ -1,271 +1,32 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Navbar background change on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.project-card, .about-content, .contact-content');
-    animateElements.forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
-});
-
-
-
-// Typing animation for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
     
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// Initialize typing animation when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    const deGrid = document.getElementById('data-engineering-grid');
-    const devopsGrid = document.getElementById('devops-grid');
-    const dsGrid = document.getElementById('data-science-grid');
-
-    fetch('projects.json')
-        .then(response => response.json())
-        .then(projects => {
-            projects.forEach(project => {
-                const card = createProjectCard(project);
-                if (project.category === "Data Engineering") {
-                    deGrid.appendChild(card);
-                } else if (project.category === "DevOps & Automation") {
-                    devopsGrid.appendChild(card);
-                } else if (project.category === "Data Science & BI") {
-                    dsGrid.appendChild(card);
-                }
-            });
-        });
-});
-
-// Add active class to navigation links based on scroll position
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Project card hover effects
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Social links hover effects
-document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-3px) scale(1.1)';
-    });
-    
-    link.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Skills tags animation
-document.querySelectorAll('.skill-tag').forEach((tag, index) => {
-    tag.style.animationDelay = `${index * 0.1}s`;
-    tag.classList.add('animate-in');
-});
-
-// Add CSS for skill tag animation
-const style = document.createElement('style');
-style.textContent = `
-    .skill-tag.animate-in {
-        animation: slideInUp 0.6s ease forwards;
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    
-    @keyframes slideInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .nav-link.active {
-        color: #2563eb !important;
-    }
-    
-    .nav-link.active::after {
-        width: 100% !important;
-    }
-`;
-document.head.appendChild(style);
-
-// Preloader (optional)
-window.addEventListener('load', () => {
-    // Remove preloader if it exists
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
-    }
-});
-
-// Back to top button functionality
-function createBackToTopButton() {
-    const backToTop = document.createElement('button');
-    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTop.className = 'back-to-top';
-    backToTop.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        background: #2563eb;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        font-size: 1.2rem;
-    `;
-    
-    document.body.appendChild(backToTop);
-    
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.style.opacity = '1';
-            backToTop.style.visibility = 'visible';
-        } else {
-            backToTop.style.opacity = '0';
-            backToTop.style.visibility = 'hidden';
-        }
-    });
-    
-    // Scroll to top when clicked
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+    // --- Project Filtering Logic ---
     const projectsGrid = document.getElementById('projects-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
+    let allProjects = [];
 
-    let allProjects = []; // To store all projects once fetched
+    if (projectsGrid && filterButtons.length > 0) {
+        fetch('projects.json')
+            .then(response => response.json())
+            .then(projects => {
+                allProjects = projects;
+                displayProjects(allProjects); // Display all projects initially
+            })
+            .catch(error => console.error('Error fetching projects:', error));
+    }
 
-    // Fetch project data from JSON file
-    fetch('projects.json')
-        .then(response => response.json())
-        .then(projects => {
-            allProjects = projects;
-            displayProjects(allProjects); // Display all projects initially
-        })
-        .catch(error => console.error('Error fetching projects:', error));
-
-    // Function to display projects
     function displayProjects(projectsToDisplay) {
-        projectsGrid.innerHTML = ''; // Clear the grid
+        projectsGrid.innerHTML = '';
         projectsToDisplay.forEach(project => {
             const card = createProjectCard(project);
             projectsGrid.appendChild(card);
         });
     }
 
-    // Function to create a single project card HTML element
     function createProjectCard(project) {
         const card = document.createElement('div');
-        // Add the category as a data attribute for filtering
-        card.className = `project-card`; 
+        card.className = 'project-card fade-in'; // Add fade-in for animation
         card.dataset.category = project.category;
-
         const tagsHTML = project.technologies.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
 
         card.innerHTML = `
@@ -283,10 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    // Add click event listeners to filter buttons
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Manage active button style
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
@@ -294,26 +53,103 @@ document.addEventListener('DOMContentLoaded', () => {
             const projectCards = document.querySelectorAll('.project-card');
 
             projectCards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.classList.remove('hide');
-                } else {
-                    card.classList.add('hide');
-                }
+                // We use a timeout to allow the fade-out animation to play
+                setTimeout(() => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }, 200);
             });
         });
     });
 
-    // Hamburger menu logic
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+    // --- Mobile Navigation Toggle ---
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+    }
+
+    // --- Smooth Scrolling for Anchor Links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 
-    document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
-    }));
+    // --- Scroll Animations ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    const animateElements = document.querySelectorAll('.about-content, .contact-content, .project-card, .skill-tag, .hero-content, .hero-image');
+    animateElements.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+
+    // --- Back to Top Button ---
+    createBackToTopButton();
 });
+
+// --- Navbar background change on scroll ---
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+    }
+});
+
+// --- Back to top button functionality ---
+function createBackToTopButton() {
+    const backToTop = document.createElement('button');
+    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTop.className = 'back-to-top';
+    backToTop.style.cssText = `
+        position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
+        background: #2563eb; color: white; border: none; border-radius: 50%;
+        cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        z-index: 1000; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;`;
+    
+    document.body.appendChild(backToTop);
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.style.opacity = '1';
+            backToTop.style.visibility = 'visible';
+        } else {
+            backToTop.style.opacity = '0';
+            backToTop.style.visibility = 'hidden';
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
