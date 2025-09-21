@@ -1,66 +1,74 @@
 [
   {
+    "image": "project-churn-dashboard.jpg",
+    "alt_text": "Customer Churn Prediction Platform",
+    "title": "End-to-End Customer Churn Prediction Platform",
+    "description": "Architected and developed a complete data science solution in Microsoft Fabric to analyze and predict customer churn, achieving 79.77% prediction accuracy and building an interactive Power BI dashboard to visualize results.",
+    "technologies": ["Microsoft Fabric", "PySpark", "XGBoost", "Power BI", "DAX"],
+    "github_url": "https://github.com/SugamDewan/Customer-Churn-Prediction-Fabric",
+    "category": "Data Science & BI"
+  },
+  {
     "image": "project-azure-streaming.png",
     "alt_text": "A Power BI dashboard showing analysis of real-time transportation data.",
     "title": "Azure Real-Time Streaming Pipeline",
-    "description": "Engineered an end-to-end, real-time data pipeline on Microsoft Azure using Event Hub, Stream Analytics, and Data Lake Storage. The project ingested and processed a live data stream, storing the results for visualization in Power BI.",
+    "description": "Engineered an end-to-end, real-time data pipeline on Microsoft Azure using Event Hub and Stream Analytics to process and visualize a live data stream in Power BI.",
     "technologies": ["Azure", "Event Hub", "Stream Analytics", "ADLS Gen2", "Power BI", "Python"],
-    "github_url": "https://github.com/SugamDewan/Azure-Streaming-Data-Pipeline"
+    "github_url": "https://github.com/SugamDewan/Azure-Streaming-Data-Pipeline",
+    "category": "Data Engineering"
+  },
+  {
+    "image": "project-cicd-pipeline.png",
+    "alt_text": "A diagram of a CI/CD pipeline using GitHub Actions.",
+    "title": "Zero-Touch CI/CD Pipeline for Portfolio Website",
+    "description": "Engineered a complete CI/CD pipeline using GitHub Actions to automate website deployment. This YAML-based workflow eliminated 100% of manual deployment errors.",
+    "technologies": ["CI/CD", "GitHub Actions", "YAML", "Git", "DevOps"],
+    "github_url": "https://github.com/SugamDewan/SugamDewan.github.io",
+    "category": "DevOps & Automation"
   },
   {
     "image": "project-medallion-pipeline.png",
     "alt_text": "A diagram of a Medallion Architecture data pipeline.",
     "title": "Medallion Architecture Pipeline with Microsoft Fabric",
-    "description": "Engineered an end-to-end, near real-time data pipeline using the Medallion architecture in Microsoft Fabric. The project ingests raw stock data (Bronze), cleans and structures it with PySpark (Silver), and creates business-level aggregations (Gold), making it ready for BI analysis.",
-    "technologies": ["Microsoft Fabric", "PySpark", "Spark SQL", "Delta Lake", "Data Pipelines", "Medallion Architecture"],
-    "github_url": "https://github.com/SugamDewan/Fabric-Medallion-Stock-Pipeline"
-  },
-{
-    "image": "project-cicd-pipeline.png",
-    "alt_text": "A diagram of a CI/CD pipeline using GitHub Actions.",
-    "title": "Zero-Touch CI/CD Pipeline for Portfolio Website",
-    "description": "Engineered a complete CI/CD pipeline using GitHub Actions to automate the deployment of a static portfolio website. The YAML-based workflow automatically triggers on a git push, building and deploying the site to GitHub Pages, eliminating manual uploads.",
-    "technologies": ["CI/CD", "GitHub Actions", "YAML", "Git", "DevOps"],
-    "github_url": "https://github.com/SugamDewan/SugamDewan.github.io"
-  },
-  {
-    "image": "project-azure-webapp.png",
-    "alt_text": "A diagram showing a web application hosted in Azure App Service.",
-    "title": "Cloud Web App Hosting with Azure App Service",
-    "description": "Provisioned a web hosting environment in Microsoft Azure and deployed a static HTML application using Azure App Service. This foundational project demonstrates a practical understanding of cloud application hosting and Platform-as-a-Service (PaaS) concepts.",
-    "technologies": ["Azure App Service", "PaaS", "Cloud Hosting", "HTML"],
-    "github_url": "https://github.com/SugamDewan/Azure-WebApp-Deployment-Demo"
-  },
-{
-    "image": "project-churn-dashboard.jpg",
-    "alt_text": "Customer Churn Prediction Platform",
-    "title": "End-to-End Customer Churn Prediction Platform",
-    "description": "Architected and developed a complete data science solution in Microsoft Fabric to analyze and predict customer churn. The project involved the full lifecycle: engineering a star schema data model with PySpark, training and evaluating an XGBoost machine learning model with Python to achieve 79.77% prediction accuracy, and building an interactive Power BI dashboard to visualize the results and identify high-risk customer segments.",
-    "technologies": ["Microsoft Fabric", "Azure", "Python", "PySpark", "SQL", "Scikit-learn", "XGBoost", "Power BI", "DAX", "Dataflows", "Data Modeling"],
-    "github_url": "https://github.com/SugamDewan/Customer-Churn-Prediction-Fabric"
+    "description": "Built a near real-time data pipeline using the Medallion architecture (Bronze, Silver, Gold) in Microsoft Fabric to ingest, clean, and aggregate raw stock data using PySpark.",
+    "technologies": ["Microsoft Fabric", "PySpark", "Delta Lake", "Medallion Architecture"],
+    "github_url": "https://github.com/SugamDewan/Fabric-Medallion-Stock-Pipeline",
+    "category": "Data Engineering"
   },
   {
     "image": "project-sales-analytics.jpg",
     "alt_text": "A diagram of an end-to-end sales analytics pipeline",
     "title": "End-to-End Sales Analytics Pipeline",
-    "description": "Engineered a complete data pipeline using Microsoft Fabric to ingest, clean, transform, and model raw sales data. Architected a star schema data model to enable high-performance reporting in Power BI using DirectLake mode.",
+    "description": "Engineered a complete data pipeline using Microsoft Fabric to ingest, clean, and model raw sales data into a high-performance star schema for Power BI reporting.",
     "technologies": ["Microsoft Fabric", "PySpark", "Power BI", "Deltalake"],
-    "github_url": "https://github.com/SugamDewan/Microsoft-Fabric-Sales-Analytics-Project"
+    "github_url": "https://github.com/SugamDewan/Microsoft-Fabric-Sales-Analytics-Project",
+    "category": "Data Engineering"
   },
   {
     "image": "project-etl-migration.jpg",
     "alt_text": "Architecture diagram of an Azure ETL migration and optimization",
     "title": "Azure-Based ETL Migration & Optimization",
-    "description": "Designed end-to-end ETL pipelines with Azure Data Factory and Databricks. Implemented transformations using PySpark in Azure Databricks to optimize performance, reducing data processing time by 30%.",
+    "description": "Designed end-to-end ETL pipelines with Azure Data Factory and Databricks, reducing data processing time by 30% through PySpark transformations.",
     "technologies": ["Azure Data Factory", "Azure Databricks", "PySpark", "SQL"],
-    "github_url": "https://github.com/SugamDewan/Azure-Pipeline-Demo"
+    "github_url": "https://github.com/SugamDewan/Azure-Pipeline-Demo",
+    "category": "Data Engineering"
+  },
+  {
+    "image": "project-azure-webapp.png",
+    "alt_text": "A diagram showing a web application hosted in Azure App Service.",
+    "title": "Cloud Infrastructure Deployment (IaaS vs. PaaS)",
+    "description": "Deployed a web application to Azure using both PaaS (App Service) and IaaS (a manually configured VM) to demonstrate understanding of core cloud infrastructure models.",
+    "technologies": ["Azure VM", "IaaS", "PaaS", "IIS", "Networking"],
+    "github_url": "https://github.com/SugamDewan/Azure-WebApp-Deployment-Demo",
+    "category": "DevOps & Automation"
   },
   {
     "image": "project-sql-optimization.jpg",
-    "alt_text": "A graphic showing SQL Server optimization and disaster recovery concepts",
+    "alt_text": "A graphic showing SQL Server optimization concepts.",
     "title": "SQL Server Optimization & Monitoring",
-    "description": "Developed a Python script using pyodbc to automate SQL Server backup monitoring and query performance analysis. Optimized database query performance, achieving an execution time of 0.02 seconds on test data.",
+    "description": "Developed a Python script to automate SQL Server monitoring and optimized a complex query to achieve an execution time of just 0.02 seconds.",
     "technologies": ["Python", "SQL Server", "Git", "pyodbc", "T-SQL"],
-    "github_url": "https://github.com/SugamDewan/SQLServer-Optimization-DR"
+    "github_url": "https://github.com/SugamDewan/SQLServer-Optimization-DR",
+    "category": "Data Engineering"
   }
 ]

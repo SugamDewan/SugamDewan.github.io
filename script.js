@@ -82,13 +82,24 @@ function typeWriter(element, text, speed = 100) {
 
 // Initialize typing animation when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        setTimeout(() => {
-            typeWriter(heroTitle, originalText, 50);
-        }, 500);
-    }
+    const deGrid = document.getElementById('data-engineering-grid');
+    const devopsGrid = document.getElementById('devops-grid');
+    const dsGrid = document.getElementById('data-science-grid');
+
+    fetch('projects.json')
+        .then(response => response.json())
+        .then(projects => {
+            projects.forEach(project => {
+                const card = createProjectCard(project);
+                if (project.category === "Data Engineering") {
+                    deGrid.appendChild(card);
+                } else if (project.category === "DevOps & Automation") {
+                    devopsGrid.appendChild(card);
+                } else if (project.category === "Data Science & BI") {
+                    dsGrid.appendChild(card);
+                }
+            });
+        });
 });
 
 // Add active class to navigation links based on scroll position
