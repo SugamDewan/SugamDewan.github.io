@@ -1,26 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Simplified Project Loading Logic ---
     const projectsGrid = document.getElementById('projects-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
 
-    if (projectsGrid) {
-        fetch('projects.json')
-            .then(response => response.json())
-            .then(projects => {
-                console.log("Successfully fetched projects:", projects); // Debugging line
-                projects.forEach(project => {
-                    const card = createProjectCard(project);
-                    projectsGrid.appendChild(card);
-                });
-            })
-            .catch(error => {
-                console.error("Error fetching projects:", error);
-            });
-    }
+    let allProjects = []; // To store all projects once fetched
 
+    // --- Function to Create a Single Project Card ---
     function createProjectCard(project) {
         const card = document.createElement('div');
-        card.className = 'project-card';
+        // Add the category as a data attribute for filtering
+        card.className = 'project-card'; 
+        card.dataset.category = project.category;
+
         const tagsHTML = project.technologies.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
+
         card.innerHTML = `
             <div class="project-image">
                 <img src="${project.image}" alt="${project.alt_text}">
@@ -35,20 +27,51 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>`;
         return card;
     }
+    
+    // --- Fetch project data and display all projects initially ---
+    fetch('projects.json')
+        .then(response => response.json())
+        .then(projects => {
+            allProjects = projects;
+            allProjects.forEach(project => {
+                const card = createProjectCard(project);
+                projectsGrid.appendChild(card);
+            });
+        })
+        .catch(error => console.error('Error fetching projects:', error));
+
+
+    // --- Add click event listeners to filter buttons ---
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Manage active button style
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.dataset.filter;
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'block'; // Show matching cards
+                } else {
+                    card.style.display = 'none'; // Hide non-matching cards
+                }
+            });
+        });
+    });
 
     // --- Hamburger menu logic ---
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        });
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
 
-        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        }));
-    }
+    document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }));
 });
