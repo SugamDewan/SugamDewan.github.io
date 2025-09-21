@@ -580,3 +580,44 @@ html {
     height: 200px;
     object-fit: cover; 
 }
+
+/* --- Styling for Project Filter Buttons --- */
+.project-filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-color: #e5e7eb;
+    color: #4b5563;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #d1d5db;
+}
+
+.filter-btn.active {
+    background-color: #2563eb;
+    color: white;
+}
+
+/* --- Styling for Hiding/Showing Project Cards --- */
+.project-card {
+    /* ... your existing styles ... */
+    transition: all 0.4s ease; /* Add transition for smooth filtering */
+}
+
+.project-card.hide {
+    transform: scale(0.8);
+    opacity: 0;
+    display: none;
+}

@@ -235,44 +235,36 @@ function createBackToTopButton() {
     });
 }
 
-// Initialize back to top button
-createBackToTopButton(); 
-
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Get references to the new grid containers ---
-    const deGrid = document.getElementById('data-engineering-grid');
-    const devopsGrid = document.getElementById('devops-grid');
-    const dsGrid = document.getElementById('data-science-grid');
+    const projectsGrid = document.getElementById('projects-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
 
-    // --- Fetch the project data ---
+    let allProjects = []; // To store all projects once fetched
+
+    // Fetch project data from JSON file
     fetch('projects.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(projects => {
-            // --- Loop through each project and sort into the correct grid ---
-            projects.forEach(project => {
-                const card = createProjectCard(project);
-                if (project.category === "Data Engineering") {
-                    deGrid.appendChild(card);
-                } else if (project.category === "DevOps & Automation") {
-                    devopsGrid.appendChild(card);
-                } else if (project.category === "Data Science & BI") {
-                    dsGrid.appendChild(card);
-                }
-            });
+            allProjects = projects;
+            displayProjects(allProjects); // Display all projects initially
         })
-        .catch(error => {
-            console.error('Error fetching or parsing projects:', error);
-        });
+        .catch(error => console.error('Error fetching projects:', error));
 
-    // --- Function to Create a Single Project Card ---
+    // Function to display projects
+    function displayProjects(projectsToDisplay) {
+        projectsGrid.innerHTML = ''; // Clear the grid
+        projectsToDisplay.forEach(project => {
+            const card = createProjectCard(project);
+            projectsGrid.appendChild(card);
+        });
+    }
+
+    // Function to create a single project card HTML element
     function createProjectCard(project) {
         const card = document.createElement('div');
-        card.className = 'project-card';
+        // Add the category as a data attribute for filtering
+        card.className = `project-card`; 
+        card.dataset.category = project.category;
 
         const tagsHTML = project.technologies.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
 
@@ -283,18 +275,35 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="project-content">
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
-                <div class="project-tech">
-                    ${tagsHTML}
-                </div>
+                <div class="project-tech">${tagsHTML}</div>
                 <div class="project-links">
                     <a href="${project.github_url}" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
                 </div>
-            </div>
-        `;
+            </div>`;
         return card;
     }
 
-    // --- Hamburger menu logic ---
+    // Add click event listeners to filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Manage active button style
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.dataset.filter;
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        });
+    });
+
+    // Hamburger menu logic
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
 
