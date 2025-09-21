@@ -238,44 +238,73 @@ function createBackToTopButton() {
 // Initialize back to top button
 createBackToTopButton(); 
 
-// --- Function to Load Projects from projects.json ---
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Get references to the new grid containers ---
+    const deGrid = document.getElementById('data-engineering-grid');
+    const devopsGrid = document.getElementById('devops-grid');
+    const dsGrid = document.getElementById('data-science-grid');
 
-document.addEventListener("DOMContentLoaded", () => {
-    const projectsGrid = document.querySelector(".projects-grid");
-    
-    if (projectsGrid) {
-        fetch("projects.json")
-            .then(response => response.json())
-            .then(projects => {
-                let projectsHTML = ""; 
-                
-                projects.forEach(project => {
-                    let tagsHTML = project.technologies.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
-                    
-                    projectsHTML += `
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="${project.image}" alt="${project.alt_text}">
-                            </div>
-                            <div class="project-content">
-                                <h3>${project.title}</h3>
-                                <p>${project.description}</p>
-                                <div class="project-tech">
-                                    ${tagsHTML}
-                                </div>
-                                <div class="project-links">
-                                    <a href="${project.github_url}" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                projectsGrid.innerHTML = projectsHTML;
-            })
-            .catch(error => {
-                console.error("Error fetching projects:", error);
-                projectsGrid.innerHTML = "<p>Could not load projects at this time.</p>";
+    // --- Fetch the project data ---
+    fetch('projects.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(projects => {
+            // --- Loop through each project and sort into the correct grid ---
+            projects.forEach(project => {
+                const card = createProjectCard(project);
+                if (project.category === "Data Engineering") {
+                    deGrid.appendChild(card);
+                } else if (project.category === "DevOps & Automation") {
+                    devopsGrid.appendChild(card);
+                } else if (project.category === "Data Science & BI") {
+                    dsGrid.appendChild(card);
+                }
             });
+        })
+        .catch(error => {
+            console.error('Error fetching or parsing projects:', error);
+        });
+
+    // --- Function to Create a Single Project Card ---
+    function createProjectCard(project) {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+
+        const tagsHTML = project.technologies.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
+
+        card.innerHTML = `
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.alt_text}">
+            </div>
+            <div class="project-content">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="project-tech">
+                    ${tagsHTML}
+                </div>
+                <div class="project-links">
+                    <a href="${project.github_url}" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        `;
+        return card;
     }
+
+    // --- Hamburger menu logic ---
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }));
 });
