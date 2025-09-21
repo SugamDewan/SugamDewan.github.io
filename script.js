@@ -4,9 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allProjects = []; // To store all projects once fetched
 
-    // --- Function to Create a Single Project Card ---
-    function createProjectCard(project) {
-        const card = document.createElement('div');
+ function createProjectCard(project) {
+        // The card is now an anchor (<a>) tag to make the whole thing clickable
+        const card = document.createElement('a'); 
+        card.className = 'project-card fade-in';
+        card.href = project.github_url;      // The link is set on the card itself
+        card.target = '_blank';              // Opens the link in a new tab
+        card.dataset.category = project.category;
+        
+        const tagsHTML = project.technologies.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
+
+        card.innerHTML = `
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.alt_text}">
+            </div>
+            <div class="project-content">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="project-tech">${tagsHTML}</div>
+            </div>`;
+        return card;
+    }
         // Add the category as a data attribute for filtering
         card.className = 'project-card'; 
         card.dataset.category = project.category;
