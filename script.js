@@ -2,26 +2,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsGrid = document.getElementById('projects-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
-    // --- Function to Create a Single Project Card ---
-    // This is the new version that makes the entire card a clickable link
+    // --- Function to Create a Single Project Card  ---
     function createProjectCard(project) {
         const card = document.createElement('a');
         card.className = 'project-card fade-in';
         card.href = project.github_url;
-        card.target = '_blank'; // Opens the link in a new tab
+        card.target = '_blank';
         card.dataset.category = project.category;
-        
-        const tagsHTML = project.technologies.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
 
-        card.innerHTML = `
-            <div class="project-image">
-                <img src="${project.image}" alt="${project.alt_text}">
-            </div>
-            <div class="project-content">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="project-tech">${tagsHTML}</div>
-            </div>`;
+        // Create elements safely 
+        const imageDiv = document.createElement('div');
+        imageDiv.className = 'project-image';
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = project.alt_text;
+        imageDiv.appendChild(img);
+
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'project-content';
+
+        const title = document.createElement('h3');
+        title.textContent = project.title;
+
+        const description = document.createElement('p');
+        description.textContent = project.description;
+
+        const techDiv = document.createElement('div');
+        techDiv.className = 'project-tech';
+        project.technologies.forEach(tagText => {
+            const tag = document.createElement('span');
+            tag.className = 'tech-tag';
+            tag.textContent = tagText;
+            techDiv.appendChild(tag);
+        });
+
+        contentDiv.appendChild(title);
+        contentDiv.appendChild(description);
+        contentDiv.appendChild(techDiv);
+
+        card.appendChild(imageDiv);
+        card.appendChild(contentDiv);
+
         return card;
     }
     
@@ -39,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Add click event listeners to filter buttons ---
     filterButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent the browser from navigating on button click
+            e.preventDefault(); // To Prevent page jump
             
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
@@ -61,13 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
 
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-    });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
 
-    document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
-    }));
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+    }
 });
