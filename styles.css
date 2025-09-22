@@ -285,7 +285,9 @@ section {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    cursor: pointer; /* Add this line */
+    cursor: pointer;
+    color: inherit; /* Add this line */
+    text-decoration: none; /* Add this line */
 }
 
 .project-card:hover {
@@ -622,3 +624,4 @@ html {
     opacity: 0;
     display: none;
 }
+
