@@ -1,5 +1,14 @@
 [
   {
+    "image": "project-fabric-covid.png",
+    "alt_text": "Power BI dashboard showing COVID-19 analysis from a Fabric pipeline.",
+    "title": "End-to-End COVID-19 Reporting Pipeline in Microsoft Fabric",
+    "description": "Developed a prototype end-to-end data pipeline in Microsoft Fabric to ingest, process, and analyze ECDC COVID-19 datasets, providing actionable insights via Power BI connected in Direct Lake mode.",
+    "technologies": ["Microsoft Fabric", "Data Pipeline", "Dataflow Gen2", "Lakehouse", "Power BI", "Direct Lake"],
+    "github_url": "https://github.com/SugamDewan/Fabric-COVID-Reporting-Project",
+    "category": "Data Engineering"
+  },
+  {
     "image": "project-churn-dashboard.jpg",
     "alt_text": "Customer Churn Prediction Platform",
     "title": "End-to-End Customer Churn Prediction Platform",
