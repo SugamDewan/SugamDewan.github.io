@@ -1,11 +1,12 @@
 [ 
-  {
+ {
+    "image": "project-yelp-pipeline.png",
+    "alt_text": "Azure Databricks Yelp Pipeline Architecture",
     "title": "Azure Databricks Yelp Pipeline",
-    "description": "Engineered a scalable Medallion Architecture (Bronze/Silver/Gold) using PySpark on Databricks. Implemented Delta Lake for schema enforcement and upgraded storage security from legacy WASBS to ABFSS protocol for ADLS Gen2.",
-    "tags": ["Azure Databricks", "PySpark", "Delta Lake", "ADLS Gen2", "Data Engineering"],
-    "link": "https://github.com/SugamDewan/azure-databricks-yelp-pipeline",
-    "category": "Data Engineering",
-    "image": "project-yelp-pipeline.png"
+    "description": "Engineered a scalable Medallion Architecture (Bronze/Silver/Gold) using PySpark on Databricks. Implemented Delta Lake for schema enforcement and upgraded storage security from legacy WASBS to ABFSS protocol.",
+    "technologies": ["Azure Databricks", "PySpark", "Delta Lake", "ADLS Gen2", "Data Engineering"],
+    "github_url": "https://github.com/SugamDewan/azure-databricks-yelp-pipeline",
+    "category": "Data Engineering"
   },
   {
     "image": "project-fabric-covid.png",
