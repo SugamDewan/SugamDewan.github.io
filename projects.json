@@ -1,4 +1,13 @@
 [ 
+  {
+    "image": "project-movielens-analysis.png",
+    "alt_text": "MovieLens Analysis Top Rated Movies Chart",
+    "title": "End-to-End Azure Data Engineering Pipeline: MovieLens Pipeline",
+    "description": "Built a scalable pipeline processing 100k+ ratings using Medallion Architecture. Solved complex zipped-file ingestion challenges on Databricks using PySpark and SAS tokens for secure ADLS Gen2 access.",
+    "technologies": ["Azure Databricks", "PySpark", "ADLS Gen2", "Medallion Architecture", "Python"],
+    "github_url": "https://github.com/SugamDewan/Azure-Databricks-MovieLens-Pipeline",
+    "category": "Data Engineering"
+  },
  {
     "image": "project-yelp-pipeline.png",
     "alt_text": "Azure Databricks Yelp Pipeline Architecture",
