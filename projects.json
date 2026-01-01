@@ -1,8 +1,8 @@
 [ 
   {
     "image": "project-movielens-analysis.png",
-    "alt_text": "High-Volume Media Ratings Data Lakehouse (1M+ Records)",
-    "title": "End-to-End Azure Data Engineering Pipeline: MovieLens Pipeline",
+    "alt_text": "MovieLens Analysis Top Rated Movies Chart",
+    "title": "High-Volume Media Ratings Data Lakehouse (1M+ Records)",
     "description": "Built a scalable pipeline processing 100k+ ratings using Medallion Architecture. Solved complex zipped-file ingestion challenges on Databricks using PySpark and SAS tokens for secure ADLS Gen2 access.",
     "technologies": ["Azure Databricks", "PySpark", "ADLS Gen2", "Medallion Architecture", "Python"],
     "github_url": "https://github.com/SugamDewan/Azure-Databricks-MovieLens-Pipeline",
