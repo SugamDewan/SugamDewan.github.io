@@ -10,8 +10,8 @@
   },
  {
     "image": "project-yelp-pipeline.png",
-    "alt_text": "Commercial Vendor Analysis Pipeline using Medallion Architecture",
-    "title": "Azure Databricks Yelp Pipeline",
+    "alt_text": "Azure Databricks Yelp Pipeline Architecture",
+    "title": "Commercial Vendor Analysis Pipeline using Medallion Architecture",
     "description": "Engineered a robust Medallion Architecture (Bronze/Silver/Gold) to process large-scale semi-structured data for a Retail/Hospitality sector POC. Implemented Delta Lake to ensure ACID transactions and schema integrity across the pipeline. A key highlight was architecting a mission-critical infrastructure migration from legacy Blob storage protocols to ADLS Gen2 (ABFSS), resulting in optimized read/write throughput and enhanced hierarchical data management.",
     "technologies": ["Azure Databricks", "PySpark", "Delta Lake", "ADLS Gen2", "Data Engineering"],
     "github_url": "https://github.com/SugamDewan/azure-databricks-yelp-pipeline",
@@ -19,8 +19,8 @@
   },
   {
     "image": "project-fabric-covid.png",
-    "alt_text": "Automated Public Health Epidemiology Dashboard",
-    "title": "End-to-End COVID-19 Reporting Pipeline in Microsoft Fabric",
+    "alt_text": "Power BI dashboard showing COVID-19 analysis from a Fabric pipeline.",
+    "title": "Automated Public Health Epidemiology Dashboard",
     "description": "Developed a prototype end-to-end data pipeline in Microsoft Fabric to ingest, process, and analyze ECDC COVID-19 datasets, providing actionable insights via Power BI connected in Direct Lake mode.",
     "technologies": ["Microsoft Fabric", "Data Pipeline", "Dataflow Gen2", "Lakehouse", "Power BI", "Direct Lake"],
     "github_url": "https://github.com/SugamDewan/Fabric-COVID-Reporting-Project",
@@ -28,8 +28,8 @@
   },
   {
     "image": "project-churn-dashboard.jpg",
-    "alt_text": "Predictive Customer Retention System (79% Accuracy Model)",
-    "title": "End-to-End Customer Churn Prediction Platform",
+    "alt_text": "Customer Churn Prediction Platform",
+    "title": "Predictive Customer Retention System (79% Accuracy Model)",
     "description": "Architected and developed a complete data science solution in Microsoft Fabric to analyze and predict customer churn, achieving 79.77% prediction accuracy and building an interactive Power BI dashboard to visualize results.",
     "technologies": ["Microsoft Fabric", "PySpark", "XGBoost", "Power BI", "DAX"],
     "github_url": "https://github.com/SugamDewan/Customer-Churn-Prediction-Fabric",
