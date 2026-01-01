@@ -1,7 +1,7 @@
 [ 
   {
     "image": "project-movielens-analysis.png",
-    "alt_text": "MovieLens Analysis Top Rated Movies Chart",
+    "alt_text": "High-Volume Media Ratings Data Lakehouse (1M+ Records)",
     "title": "End-to-End Azure Data Engineering Pipeline: MovieLens Pipeline",
     "description": "Built a scalable pipeline processing 100k+ ratings using Medallion Architecture. Solved complex zipped-file ingestion challenges on Databricks using PySpark and SAS tokens for secure ADLS Gen2 access.",
     "technologies": ["Azure Databricks", "PySpark", "ADLS Gen2", "Medallion Architecture", "Python"],
@@ -10,7 +10,7 @@
   },
  {
     "image": "project-yelp-pipeline.png",
-    "alt_text": "Azure Databricks Yelp Pipeline Architecture",
+    "alt_text": "Commercial Vendor Analysis Pipeline using Medallion Architecture",
     "title": "Azure Databricks Yelp Pipeline",
     "description": "Engineered a robust Medallion Architecture (Bronze/Silver/Gold) to process large-scale semi-structured data for a Retail/Hospitality sector POC. Implemented Delta Lake to ensure ACID transactions and schema integrity across the pipeline. A key highlight was architecting a mission-critical infrastructure migration from legacy Blob storage protocols to ADLS Gen2 (ABFSS), resulting in optimized read/write throughput and enhanced hierarchical data management.",
     "technologies": ["Azure Databricks", "PySpark", "Delta Lake", "ADLS Gen2", "Data Engineering"],
@@ -19,7 +19,7 @@
   },
   {
     "image": "project-fabric-covid.png",
-    "alt_text": "Power BI dashboard showing COVID-19 analysis from a Fabric pipeline.",
+    "alt_text": "Automated Public Health Epidemiology Dashboard",
     "title": "End-to-End COVID-19 Reporting Pipeline in Microsoft Fabric",
     "description": "Developed a prototype end-to-end data pipeline in Microsoft Fabric to ingest, process, and analyze ECDC COVID-19 datasets, providing actionable insights via Power BI connected in Direct Lake mode.",
     "technologies": ["Microsoft Fabric", "Data Pipeline", "Dataflow Gen2", "Lakehouse", "Power BI", "Direct Lake"],
@@ -28,7 +28,7 @@
   },
   {
     "image": "project-churn-dashboard.jpg",
-    "alt_text": "Customer Churn Prediction Platform",
+    "alt_text": "Predictive Customer Retention System (79% Accuracy Model)",
     "title": "End-to-End Customer Churn Prediction Platform",
     "description": "Architected and developed a complete data science solution in Microsoft Fabric to analyze and predict customer churn, achieving 79.77% prediction accuracy and building an interactive Power BI dashboard to visualize results.",
     "technologies": ["Microsoft Fabric", "PySpark", "XGBoost", "Power BI", "DAX"],
@@ -47,7 +47,7 @@
   {
     "image": "project-cicd-pipeline.png",
     "alt_text": "A diagram of a CI/CD pipeline using GitHub Actions.",
-    "title": "Zero-Touch CI/CD Pipeline for Portfolio Website",
+    "title": "Automated DevOps Pipeline for Cloud Web Deployment",
     "description": "Engineered a complete CI/CD pipeline using GitHub Actions to automate website deployment. This YAML-based workflow eliminated 100% of manual deployment errors.",
     "technologies": ["CI/CD", "GitHub Actions", "YAML", "Git", "DevOps"],
     "github_url": "https://github.com/SugamDewan/SugamDewan.github.io",
