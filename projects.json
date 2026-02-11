@@ -1,4 +1,5 @@
-[ {
+[ 
+  {
     "image": "aml-architecture.png",
     "alt_text": "Architecture diagram of an end-to-end AML data pipeline using Azure Data Factory and Medallion Architecture",
     "title": "Financial Crime Analytics Pipeline (AML)",
