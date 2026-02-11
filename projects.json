@@ -1,4 +1,11 @@
-[ 
+[ {
+    "image": "aml-architecture.png",
+    "alt_text": "Architecture diagram of an end-to-end AML data pipeline using Azure Data Factory and Medallion Architecture",
+    "title": "Financial Crime Analytics Pipeline (AML)",
+    "description": "Production-style Anti–Money Laundering (AML) data pipeline built using Medallion Architecture (Bronze–Silver–Gold). The system ingests transactional and watchlist data, applies SQL-based AML rules, and produces a business-ready Suspicious Activity reporting table for compliance and risk analysis.",
+    "github_url": "https://github.com/SugamDewan/financial-crime-analytics-pipeline",
+    "category": "Data Engineering"
+},
   {
     "image": "project-movielens-analysis.png",
     "alt_text": "MovieLens Analysis Top Rated Movies Chart",
