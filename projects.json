@@ -5,7 +5,7 @@
     "title": "Scalable Entity Resolution & Truth Engine",
     "description": "High-performance data pipeline engineered to ingest and deduplicate 140M+ records from disparate REST APIs and legacy internal systems. Utilizing a 'Truth Engine' logic with DuckDB, the system resolves identity conflicts and applies weighted trust scores to produce a single, verified 'Golden Record' for downstream BI and trend analysis.",
     "technologies": ["Python", "DuckDB", "PostgreSQL", "Apache Parquet", "Entity Resolution"],
-    "github_url": "https://github.com/SugamDewan/entity-resolution-engine",
+    "github_url": "https://github.com/SugamDewan/High-Volume-Entity-Resolution-Truth-Engine",
     "category": "Data Engineering"
 },
   {
